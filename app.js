@@ -2,6 +2,7 @@
 let listaAmigos = [];
 
 function agregarAmigo() {
+    assignTextelement('#resultado', '');
     let amigoAgregado = document.querySelector('#amigo').value;
     //verifica que el valor no sea este en blanco
     if (amigoAgregado === "") {
@@ -18,11 +19,15 @@ function agregarAmigo() {
 
 function sortearAmigo(){
     assignTextelement('#listaAmigos','');
-    //Selecciona un indice al azar para escoger al amigo secreto
-    let indiceSecreto= Math.floor(Math.random()*listaAmigos.length);
-    //Procede a seleccionar
-    assignTextelement('#resultado', `Su amigo secreto es ${listaAmigos[indiceSecreto]}`)
-    document.querySelector('#sorteo').setAttribute('disabled','true');
+    if(listaAmigos.length===0){
+        assignTextelement('#resultado', `No ha ingresado a ningun amigo a la lista`);
+    }else{
+        //Selecciona un indice al azar para escoger al amigo secreto
+        let indiceSecreto= Math.floor(Math.random()*listaAmigos.length);
+        //Procede a seleccionar
+        assignTextelement('#resultado', `Su amigo secreto es ${listaAmigos[indiceSecreto]}`)
+        document.querySelector('#sorteo').setAttribute('disabled','true');
+    }
     return;
 }
 
