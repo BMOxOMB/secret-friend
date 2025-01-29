@@ -8,6 +8,10 @@
     --color-white: #FFFFFF;
 }
 
+.button-draw:disabled {
+    background: #898989;
+}
+
 /* Estilos generales */
 * {
     margin: 0;
